@@ -4,12 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <img src="img" alt="">
+<body  class="bg-[#F4F7FF] mb-10 min-h-screen  ">
+    <header class="w-11/12 mx-auto" >
+        <nav class="flex items-center justify-between h-16 bg-white rounded-lg ">
+                <!-- left side -->
+                 <div class="flex h-12 ml-5 ">
+                    <img src="assets/logo.png" alt="">
+                    <h1 class="flex items-center"><div class="text-xl">Dev</div><span class="text-xl font-extrabold">Board</span></h1>
+                 </div>
+                 <!-- right side -->
+                 <div class="flex items-center">
+                    <div class="flex items-center h-6 mr-20 rounded-xl">
+                        <div class="flex items-center h-10 gap-4 p-4 rounded-xl">
+                        <button id="backButton" class="bg-[#3752FD] p-3  rounded-md  text-white">Back to Desk</button>
+                        
+                        </div>
+                 </div>
+            </div>
         </nav>
     </header>
+  <main>
+      <!-- Blogs sides -->
+      <section class="w-11/12 min-h-screen mx-auto mt-3">
+        <h1 class="text-2xl font-bold text-center" >Blogs</h1>
+        <!-- 1TEXT -->
+        <div class="p-6 mt-3 bg-white shadow-lg rounded-xl">
+            <h1 class="text-lg font-semibold">Question-1:What are the different ways to select an element in to the Dom?</h1>
+            <div class=" mt-4 mb-4 border-b-2 border-dashed border-[#3752FD33]"></div>
+            <p>To select an element in the DOM using JavaScript, you can use methods like: getElementById (selects by unique ID), getElementsByClassName (selects by class name), getElementsByTagName (selects by HTML tag name), querySelector (selects using a CSS selector to find the first matching element), and querySelectorAll (selects all elements matching a CSS selector). 
+            </p>
+        </div>
+       <!-- 2TEXT -->
+       <div class="p-6 mt-3 bg-white shadow-lg rounded-xl">
+        <h1 class="text-lg font-semibold">Question-2:What is the difference between innerHTML,innerTEXT,and textContent?</h1>
+        <div class=" mt-4 mb-4 border-b-2 border-dashed border-[#3752FD33]"></div>
+        <p>"innerHTML": Useful for manipulating the structure of an element by adding or modifying HTML content. <br> 
+            "innerText": Useful for extracting the text that a user would see on a page, ignoring styling and hidden elements. <br>
+            "textContent": Useful for getting the raw text content of an element, including hidden text and whitespace, without interpreting HTML tags. 
+        </p>
+    </div>
+    <!--3TEXT -->
+    <div class="p-6 mt-3 bg-white shadow-lg rounded-xl">
+        <h1 class="text-lg font-semibold">Question-3:What is event delegation in the DOM?</h1>
+        <div class=" mt-4 mb-4 border-b-2 border-dashed border-[#3752FD33]"></div>
+        <p>Event delegation refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated. It allows us to attach a single event listener for elements that exist now or in the future.
+        </p>
+    </div>
+    <!-- 4TEXT -->
+    <div class="p-6 mt-3 bg-white shadow-lg rounded-xl">
+        <h1 class="text-lg font-semibold">Question-3:What is event bubbling in the DOM?</h1>
+        <div class=" mt-4 mb-4 border-b-2 border-dashed border-[#3752FD33]"></div>
+        <p>In the DOM (Document Object Model), "event bubbling" refers to the behavior where an event triggered on a specific element travels up the DOM hierarchy, successively triggering the same event on its parent elements until it reaches the root of the document, essentially "bubbling" the event upwards through the DOM tree; this allows you to capture events on parent elements even if they were initiated on a child element within them. 
+        </p>
+    </div>
+     </section>
+  </main>
+  <script src="script/main.js"></script>
 </body>
 </html>
