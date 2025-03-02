@@ -6,13 +6,14 @@ document.getElementById("img-Btn").addEventListener("click",function(){
 });
 
 
-const ringButtons = document.querySelectorAll(".ring-button");
+const cardProduct=document.querySelectorAll(".card");
 
-for (let btn of ringButtons) {
-    btn.addEventListener('click', function(event) {
+for (let btn of cardProduct) {
+    const ringButtons = btn.querySelector(".ring-button");
+    ringButtons.addEventListener('click', function(event) {
         const navNum = document.getElementById('nav-num');
         let QuantityNav = parseInt(navNum.innerText);
-        const titles=document.querySelector("title")
+        const title=btn.querySelector(".title").innerText
         const leftQuantity = document.getElementById('left-Quantity');
         let Quantity = parseInt(leftQuantity.innerText);
 
@@ -23,26 +24,24 @@ for (let btn of ringButtons) {
                 QuantityNav++;
                 navNum.innerText = QuantityNav;
 
-                btn.disabled = true;
-                btn.style.opacity = 0.15;
+                
+                
                 const historyContainer = document.getElementById("history-container");
                 historyContainer.innerHTML += `
-                    <div class="p-4 my-2 bg-[#F4F7FF] rounded-3xl">
+                    <div class="p-4 mb-5 shadow-lg my-2 bg-[#F4F7FF] rounded-3xl">
                         <p class="font-medium">
-                            You have completed the task  at ${new Date().toLocaleTimeString()}
+                            You have completed the task ${title}  at ${new Date().toLocaleTimeString()}
                         </p>
                     </div>`;
-                
+
+                event.target.disabled=true;
+                event.target.style.opacity = 0.15;       
             }
         }
-
-        
-
     });
 
-
-
 }
+
 
 document.getElementById("clears").addEventListener("click",function(){
     const clearsBtn=document.getElementById("history-container")
@@ -50,13 +49,6 @@ document.getElementById("clears").addEventListener("click",function(){
 })
 
 
-
-
-
-
-
-
-
 document.getElementById('text-Button').addEventListener('click', function() {
     window.location.href = "main.html"; 
 });
@@ -66,9 +58,6 @@ document.getElementById('text-Button').addEventListener('click', function() {
 document.getElementById('text-Button').addEventListener('click', function() {
     window.location.href = "main.html"; 
 });
-
-
-
 
 function updateDateAndDay() {
     const currentDate = new Date();
@@ -87,12 +76,4 @@ function updateDateAndDay() {
     document.getElementById('current-date').innerText = formattedDate;
 }
 
-
 updateDateAndDay();
-
-
-
-
-function historysAdd(title,time){
-   
-}
