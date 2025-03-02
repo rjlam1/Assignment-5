@@ -6,14 +6,17 @@ document.getElementById("img-Btn").addEventListener("click",function(){
 });
 
 
-const cardProduct=document.querySelectorAll(".card");
+const cardProduct = document.querySelectorAll(".card");
+let globalClickCount = 0;
 
-for (let btn of cardProduct) {
-    const ringButtons = btn.querySelector(".ring-button");
-    ringButtons.addEventListener('click', function(event) {
+cardProduct.forEach((btn) => {
+    const ringButton = btn.querySelector(".ring-button");
+    ringButton.addEventListener('click', function(event) {
+        globalClickCount++;
+        
         const navNum = document.getElementById('nav-num');
         let QuantityNav = parseInt(navNum.innerText);
-        const title=btn.querySelector(".title").innerText
+        const title = btn.querySelector(".title").innerText;
         const leftQuantity = document.getElementById('left-Quantity');
         let Quantity = parseInt(leftQuantity.innerText);
 
@@ -24,23 +27,26 @@ for (let btn of cardProduct) {
                 QuantityNav++;
                 navNum.innerText = QuantityNav;
 
-                
-                
                 const historyContainer = document.getElementById("history-container");
                 historyContainer.innerHTML += `
                     <div class="p-4 mb-5 shadow-lg my-2 bg-[#F4F7FF] rounded-3xl">
                         <p class="font-medium">
-                            You have completed the task ${title}  at ${new Date().toLocaleTimeString()}
+                            You have completed the task ${title} at ${new Date().toLocaleTimeString()}
                         </p>
                     </div>`;
 
-                event.target.disabled=true;
-                event.target.style.opacity = 0.15;       
+                event.target.disabled = true;
+                event.target.style.opacity = 0.15;
+                
+                
+                if (globalClickCount === 6) {
+                    alert("Congrates!!! You have completed all the current task");
+                }
             }
         }
     });
+});
 
-}
 
 
 document.getElementById("clears").addEventListener("click",function(){
